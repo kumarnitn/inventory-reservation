@@ -48,31 +48,31 @@ async function main() {
   const warehouses = await Promise.all([
     prisma.warehouse.create({
       data: {
-        name: 'Silicon Valley Fulfillment',
-        location: 'San Jose, CA',
+        name: 'Bengaluru Tech Fulfillment',
+        location: 'Bengaluru, Karnataka',
       },
     }),
     prisma.warehouse.create({
       data: {
-        name: 'Austin Distribution Hub',
-        location: 'Austin, TX',
+        name: 'Mumbai Port Distribution Hub',
+        location: 'Mumbai, Maharashtra',
       },
     }),
     prisma.warehouse.create({
       data: {
-        name: 'New York Logistics Center',
-        location: 'Newark, NJ',
+        name: 'Delhi NCR Logistics Center',
+        location: 'Gurugram, Haryana',
       },
     }),
   ]);
 
   console.log('Seeding inventory mappings...');
   // Varying inventory levels for robust edge-case testing:
-  // - Product 0 (Headphones): Silicon Valley has 2 (perfect for concurrency tests), Austin has 10, New York has 0 (out of stock)
-  // - Product 1 (Keyboard): Silicon Valley has 1 (contested single unit), Austin has 5, New York has 12
-  // - Product 2 (Chair): Silicon Valley has 8, Austin has 2, New York has 15
-  // - Product 3 (Monitor): Silicon Valley has 0, Austin has 1, New York has 4
-  // - Product 4 (Hub): Silicon Valley has 25, Austin has 30, New York has 20
+  // - Product 0 (Headphones): Bengaluru has 2 (perfect for concurrency tests), Mumbai has 10, Delhi NCR has 0 (out of stock)
+  // - Product 1 (Keyboard): Bengaluru has 1 (contested single unit), Mumbai has 5, Delhi NCR has 12
+  // - Product 2 (Chair): Bengaluru has 8, Mumbai has 2, Delhi NCR has 15
+  // - Product 3 (Monitor): Bengaluru has 0, Mumbai has 1, Delhi NCR has 4
+  // - Product 4 (Hub): Bengaluru has 25, Mumbai has 30, Delhi NCR has 20
 
   const inventoryStock = [
     // Product 0: Headphones

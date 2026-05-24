@@ -6,13 +6,13 @@ const prisma = new PrismaClient();
 async function runConcurrencyTest() {
   console.log('=== STARTING CONCURRENCY STRESS TEST ===\n');
 
-  // 1. Find the test product and warehouse seeded in Silicon Valley
+  // 1. Find the test product and warehouse seeded in Bengaluru
   const product = await prisma.product.findFirst({
     where: { name: 'Ultra Wireless Headphones' },
   });
 
   const warehouse = await prisma.warehouse.findFirst({
-    where: { name: 'Silicon Valley Fulfillment' },
+    where: { name: 'Bengaluru Tech Fulfillment' },
   });
 
   if (!product || !warehouse) {
